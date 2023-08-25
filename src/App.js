@@ -1,25 +1,61 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+//import RecipeUpdate from './Components/CRUD/UpDate/RecipeUpDate';
+import NavigationBar from './Components/NavigationBar';
+//import StarterFood from './Components/StarterFood';
+import RecipeDetail from './Pages/RecipeDetail';
+import { Route, Routes } from 'react-router-dom';
+import ErrorPage from './Pages/ErrorPage';
+import Footer from './Components/Footer';
+import CardsInLine from './Pages/CardsInLine';
+import Home from './Pages/Home';
+import CardInLineList from './Pages/CardInLineList';
+
 
 function App() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+  const [inputSearch, setInputSearch] = useState('')
+
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <NavigationBar inputSearch={inputSearch} setInputSearch={setInputSearch}/>
+      <Routes>
+        <Route path='/RecipeDetail/:id' element={<RecipeDetail  />} />
+        <Route path='/*' element={<ErrorPage  />} />
+        <Route path='/' element={<Home inputSearch={inputSearch} setInputSearch={setInputSearch} />}/>
+        <Route path='/AllRecipes' element={<CardsInLine />} />
+      </Routes>
+     <Footer />
+     <CardInLineList />
     </div>
   );
 }
 
 export default App;
+// <Routes>
+//         <Route path='/*' element={<ErrorPage />} />
+//         <Route path='/RecipeDetail/:id' element={<RecipeDetail />} />
+//      </Routes>
+
+
+
+// <div className='Main'>
+//      <BackgroundVideo />
+     
+//      <h1 style={{textAlign:"center", padding:"5%"}}>Recipes</h1>
+    
+//      <RecipeList inputSearch = {inputSearch}/>
+     
+//      <Button variant="outline-secondary" style={{border:'none', textAlign: 'center', hover:'none'}} onClick={handleShow}>
+//      <h4 >... Add new Recipe</h4>
+//      </Button>
+
+//      <Modal show={show} onHide={handleClose}>
+//           <RecipeCreate />
+//      </Modal>

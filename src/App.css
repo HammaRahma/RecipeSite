@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.recipe_list{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 2%;
+  flex-flow: row wrap;
 }
-
-.App-link {
-  color: #61dafb;
+.Main{
+  padding: 5%;
+  background-color: rgba(255, 241, 223, 0.24);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.NavbarBrand{
+  color: brown;
+}
+.Navbar {
+  max-width: 280px;
+}
+.start{
+  background-image:url('https://i.ibb.co/LQ5VQfq/Healthy-Food-36.jpg');
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  width: 1500px;
+  height: 650px;
+  margin-bottom: 5%;
+  float: right;
+}
+.left_middle_content{
+  position: absolute;
+  top:70%;
+  float: left;
+  width: 50%;
+}
+.dropdown-toggle::after {
+  display: none !important; 
+}
+.main-footer{
+  background-color: lightgrey;
+}
+.row{
+  text-decoration: black;
 }
