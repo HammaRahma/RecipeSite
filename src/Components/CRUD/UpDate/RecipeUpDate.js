@@ -3,13 +3,12 @@ import { Button, Card, Form, Modal } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { update_recipe } from '../../../JS/Actions'
 
-const RecipeUpDate = ({recipe}) => {
+const RecipeUpDate = ({recipe, handleClose}) => {
   //const list = useSelector(state=>state.RecipeUpDate)
   
   const [show, setShow] = useState(true);
 
-  const handleClose = () => setShow(true);
-  const handleShow = () => setShow(false);
+
   /////UpDATE recipe
   const [newTitle, setnewTitle] = useState(recipe.title)
   const [newImage, setImage] = useState(recipe.image)

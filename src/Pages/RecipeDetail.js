@@ -15,23 +15,29 @@ const RecipeDetail = () => {
 //   console.log(recipeID)
 //   console.log(typeof(recipeID))
     const data = useSelector((state) => state.recipesData)
-    //console.log(data)
+    // console.log(data)
     //const navReturn = useNavigate()
     //console.log(data[0].title)
 
-    var ingredientTab = []
-    console.log(ingredientTab)
-    ingredientTab = recipe.ingredients
-    console.log(ingredientTab)
-    
-    var instructions = []
-    instructions = recipe.instructions
+
+const [ingredientTab, setIngredientTab] = useState([])
+
+const [instructions, setInstructions] = useState([])
 
     useEffect(() => {
-     const recipeDetail = data.find((el)=>
+     let details = data.find((el)=>
      el.id === recipeID)
-        setRecipe(recipeDetail)
-    }, [recipeID])
+
+     console.log(details)
+        setRecipe(details)     
+        
+        setIngredientTab(recipe.ingredients)
+        
+        
+        
+        setInstructions(recipe.instructions)
+    
+    }, [recipeID, data, ingredientTab, instructions, recipe.ingredients, recipe.instructions])
   
     
   return (
@@ -46,11 +52,7 @@ const RecipeDetail = () => {
       <br/>
       
       <div className="ms-2 me-auto">
-      { 
-        ingredientTab.map((ingredient)=>
-                      <div className="fw-bold">{ingredient}</div>)
-       
-        }
+{recipe.ingredients}
         
       </div>
       <br />
@@ -58,12 +60,8 @@ const RecipeDetail = () => {
       <br/>
       
         <div className="ms-2 me-auto">
-        { 
-          instructions.map((instruction)=>
-                        <div className="fw-bold">{instruction} </div>)
-         
-          }
-          
+
+        {recipe.instructions}
         </div>
       
     </div>

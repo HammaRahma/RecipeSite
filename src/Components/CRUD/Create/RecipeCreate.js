@@ -3,7 +3,7 @@ import { Button, Card, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { create_recipe } from '../../../JS/Actions'
 
-const RecipeCreate = () => {
+const RecipeCreate = ({handleClose}) => {
   /////ADD recipe
   const [newTitle, setTitle] = useState('')
   const [newImage, setImage] = useState('')
@@ -16,7 +16,8 @@ const RecipeCreate = () => {
 
     const handleAdd=()=>{
         dispatch(create_recipe({id : Math.random(), title : newTitle ,ingredients : newIngredients, instructions : newInstructions, image : newImage,   rate : newRate}))
-    }
+        handleClose()
+      }
     
 
   return (

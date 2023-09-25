@@ -41,3 +41,16 @@
 .row{
   text-decoration: black;
 }
+
+.inLineCards{
+  display: flex;
+  align-items: center;
+}
+.bg-video{
+  object-fit: cover;
+ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

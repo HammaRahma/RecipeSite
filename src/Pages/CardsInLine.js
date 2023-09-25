@@ -1,13 +1,12 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import '../App.css'
 
 const CardsInLine = ({recipe}) => {
     //console.log(recipe)
   return (
-    <div>
-
-    
-    <Card style={{ width: '18rem' }}>
+    <div > 
+    <Card style={{ width: '18rem' }} className='d-flex'>
       <Card.Img variant="top" src={recipe.image} />
       <Card.Body>
         <Card.Title>{recipe.title}</Card.Title>
@@ -17,8 +16,6 @@ const CardsInLine = ({recipe}) => {
         {recipe.rate}
       </Card.Body>
     </Card>
-    
-    
     </div>
   )
 }

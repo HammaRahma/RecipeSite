@@ -7,9 +7,9 @@ import RecipeDetail from './Pages/RecipeDetail';
 import { Route, Routes } from 'react-router-dom';
 import ErrorPage from './Pages/ErrorPage';
 import Footer from './Components/Footer';
-import CardsInLine from './Pages/CardsInLine';
 import Home from './Pages/Home';
 import CardInLineList from './Pages/CardInLineList';
+import SearchComponent from './Components/SerachComponent/SearchComponent';
 
 
 function App() {
@@ -26,13 +26,15 @@ function App() {
     <div className="App">
      <NavigationBar inputSearch={inputSearch} setInputSearch={setInputSearch}/>
       <Routes>
+        <Route path='/search' element={<SearchComponent />} />
         <Route path='/RecipeDetail/:id' element={<RecipeDetail  />} />
         <Route path='/*' element={<ErrorPage  />} />
         <Route path='/' element={<Home inputSearch={inputSearch} setInputSearch={setInputSearch} />}/>
-        <Route path='/AllRecipes' element={<CardsInLine />} />
+        <Route path='/AllRecipes' element={<CardInLineList />} />
+        
       </Routes>
      <Footer />
-     <CardInLineList />
+     
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 import RecipeCreate from '../Components/CRUD/Create/RecipeCreate';
 import RecipeList from '../Components/CRUD/Read/RecipeList';
 
+
 const Home = ({inputSearch}) => {
 
     const [show, setShow] = useState(false);
@@ -25,7 +26,7 @@ const Home = ({inputSearch}) => {
     </Button>
 
     <Modal show={show} onHide={handleClose}>
-    <RecipeCreate />
+    <RecipeCreate handleClose={handleClose} />
     </Modal>
     
     </div>

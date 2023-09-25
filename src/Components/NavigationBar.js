@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Button, Container, Dropdown, Form, Navbar } from 'react-bootstrap'
-import iconBars from '../Images/iconBars.jpg'
+import { Button, Container, Dropdown, Form, Nav, Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { FiMenu } from "react-icons/fi";
 
 const NavigationBar = ({inputSearch, setInputSearch}) => {
 
@@ -26,11 +27,14 @@ const NavigationBar = ({inputSearch, setInputSearch}) => {
     <Container >
     <div >
       <Button variant="secondery" onClick={handleShow}  >
-      <img src= {iconBars} alt='icon' style={{height:'2em', width:'2em'}}/>
+     <FiMenu size={'1.7em'}/>
       </Button>
 
       <Dropdown.Menu show={show} onClick={handleClose}>
-      <Dropdown.Item eventKey="1">All Recipes</Dropdown.Item>
+      <Nav.Link as={Link} to={`/AllRecipes`}>
+      <Dropdown.Item eventKey="1" >All Recipes</Dropdown.Item>
+      </Nav.Link>
+      
       <Dropdown.Item eventKey="2">Rated Recipes</Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item eventKey="4">Blog</Dropdown.Item>

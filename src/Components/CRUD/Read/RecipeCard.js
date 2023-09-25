@@ -1,15 +1,13 @@
 //import React, { useState } from 'react'
-import { Button, Card, Form, Modal, Nav } from 'react-bootstrap'
+import { Button, Card, Modal, Nav } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { delete_recipe, update_recipe } from '../../../JS/Actions'
 import ReactStars from 'react-stars'
-import iconDelete from '../../../Images/iconDelete.png'
-import pen from '../../../Images/pen.jpg'
 import './RecipeCard.css'
 //import RecipeUpDate from '../UpDate/RecipeUpDate'
 import { useState } from 'react'
 import RecipeUpDate from '../UpDate/RecipeUpDate'
-
+import { FiTrash, FiEdit3 } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -60,14 +58,14 @@ const navigate = useNavigate()
 
       <div className='space-between mt-auto'>
       <Button variant="outline-secondary" style={{border:'none'}} onClick={handleShow}>
-      <img src= {pen} alt='icon' style={{height:'2em', width:'2em'}}/>
+      <FiEdit3 size={'1.5em'} />
       </Button>
       <Button variant="outline-secondary" style={{border:'none'}} onClick={()=> handleDelete(recipe.id)}>
-      <img src= {iconDelete} alt='icon' style={{height:'2em', width:'2em'}}/>
+      <FiTrash size={'1.5em'}/>
       </Button>
       
       <Modal show={show} onHide={handleClose}>
-      <RecipeUpDate recipe ={recipe}/>
+      <RecipeUpDate recipe ={recipe} handleClose={handleClose} />
       </Modal>
 
       </div>
